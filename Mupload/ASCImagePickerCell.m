@@ -30,18 +30,25 @@
     // Configure the view for the selected state
 }
 
-// images should be of length 4, ALWAYS
+// images should be of length 4, unless it is the last row
 - (void)setupCellWithImages:(NSArray*)images
 {
     int count = [images count];
-    if(count >= 0) {
+    if(count > 0) {
         self.image0.image = [images objectAtIndex:0];
-    } else if(count >= 1) {
+        //NSLog(@"0 SET");
+    }
+    if(count > 1) {
         self.image1.image = [images objectAtIndex:1];
-    } else if(count >= 2) {
+        //NSLog(@"1 SET");
+    }
+    if(count > 2) {
         self.image2.image = [images objectAtIndex:2];
-    } else if(count >= 3) {
+        //NSLog(@"2 SET");
+    }
+    if([images count] > 3) {
         self.image3.image = [images objectAtIndex:3];
+        //NSLog(@"3 SET");
     }
 }
 

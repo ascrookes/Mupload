@@ -12,6 +12,7 @@
 
 @synthesize assetsLibrary = _assetsLibrary;
 @synthesize assets = _assets;
+@synthesize delegate;
 
 
 
@@ -27,21 +28,25 @@
 - (void)getAssetsFromPhotoLibrary
 {
     [self.assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
-        NSLog(@"enumerating");
+        //NSLog(@"enumerating");
         if(group != nil) {
             [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
-                [self.assets addObject:result];
-                NSLog(@"ADDED ASSET");
+                if(result != nil) {
+                    [self.assets addObject:result];
+                    //NSLog(@"Adding");
+                }
             }];
         }
+        [self.delegate enumeratedAGroup];
+        
     } failureBlock:^(NSError *error) {
-        NSLog(@"Assets library enumeration failure error: %@", error);
+        //NSLog(@"Assets library enumeration failure error: %@", error);
     }];
 }
 
 - (UIImage*)getImageAtIndex:(NSInteger)index
 {
-    CGImageRef imageRef = [[[self.assets objectAtIndex:index] defaultRepresentation] fullResolutionImage];
+    CGImageRef imageRef = [[self.assets objectAtIndex:index] thumbnail];
     return [UIImage imageWithCGImage:imageRef];
 }
 

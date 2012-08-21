@@ -1,5 +1,5 @@
 //
-//  ASCImagePickerViewController.h
+//  ASCImageCellThumbnail.h
 //  Mupload
 //
 //  Created by Amadou Crookes on 8/21/12.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ASCImagePickerViewController : UITableViewController
+@interface ASCImageCellThumbnail : UIImageView
 
 @end

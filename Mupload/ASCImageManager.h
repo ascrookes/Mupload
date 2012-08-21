@@ -9,11 +9,18 @@
 #import <Foundation/Foundation.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 
+@protocol ASCImageManagerDelegate <NSObject>
+
+- (void)enumeratedAGroup;
+
+@end
+
+
 @interface ASCImageManager : NSObject
 
 @property (nonatomic,strong) ALAssetsLibrary* assetsLibrary;
 @property (nonatomic,strong) NSMutableArray*  assets;
-
+@property (nonatomic,strong) id <ASCImageManagerDelegate> delegate;
 
 + (ASCImageManager*)ImageManagerWithPhotoLibrary;
 - (void)getAssetsFromPhotoLibrary;

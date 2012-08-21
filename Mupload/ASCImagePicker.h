@@ -10,9 +10,12 @@
 #import "ASCImageManager.h"
 #import "ASCImagePickerCell.h"
 
-@interface ASCImagePicker : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ASCImagePicker : UIViewController <UITableViewDataSource, UITableViewDelegate, ASCImageManagerDelegate>
 
-@property (nonatomic,strong) UITableView* table;
+@property (nonatomic,weak) IBOutlet UITableView* table;
 @property (nonatomic,strong) ASCImageManager* imageManager;
+
+- (void)enumeratedAGroup;
+
 
 @end

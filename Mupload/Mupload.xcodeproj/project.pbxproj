@@ -25,6 +25,7 @@
 		8EEEF4D815E40D1A00F419D7 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EEEF4D715E40D1A00F419D7 /* AssetsLibrary.framework */; };
 		8EEEF4DF15E40F2F00F419D7 /* ASCImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EEEF4DE15E40F2F00F419D7 /* ASCImagePicker.m */; };
 		8EEEF4E515E413A000F419D7 /* ASCImagePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EEEF4E415E413A000F419D7 /* ASCImagePickerCell.m */; };
+		8EFC143A15E4544C0084D97E /* ASCImageCellThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EFC143915E4544C0084D97E /* ASCImageCellThumbnail.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,8 @@
 		8EEEF4DE15E40F2F00F419D7 /* ASCImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASCImagePicker.m; path = ../ASCImagePicker.m; sourceTree = "<group>"; };
 		8EEEF4E315E413A000F419D7 /* ASCImagePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASCImagePickerCell.h; path = ../ASCImagePickerCell.h; sourceTree = "<group>"; };
 		8EEEF4E415E413A000F419D7 /* ASCImagePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASCImagePickerCell.m; path = ../ASCImagePickerCell.m; sourceTree = "<group>"; };
+		8EFC143815E4544C0084D97E /* ASCImageCellThumbnail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASCImageCellThumbnail.h; sourceTree = "<group>"; };
+		8EFC143915E4544C0084D97E /* ASCImageCellThumbnail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASCImageCellThumbnail.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +141,8 @@
 				8EEEF4D115E406EB00F419D7 /* ASCImageManager.m */,
 				8EEEF4E315E413A000F419D7 /* ASCImagePickerCell.h */,
 				8EEEF4E415E413A000F419D7 /* ASCImagePickerCell.m */,
+				8EFC143815E4544C0084D97E /* ASCImageCellThumbnail.h */,
+				8EFC143915E4544C0084D97E /* ASCImageCellThumbnail.m */,
 				8E3B235715E35DC400DA24C7 /* Supporting Files */,
 			);
 			path = Mupload;
@@ -287,6 +292,7 @@
 				8EEEF4D215E406EB00F419D7 /* ASCImageManager.m in Sources */,
 				8EEEF4DF15E40F2F00F419D7 /* ASCImagePicker.m in Sources */,
 				8EEEF4E515E413A000F419D7 /* ASCImagePickerCell.m in Sources */,
+				8EFC143A15E4544C0084D97E /* ASCImageCellThumbnail.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

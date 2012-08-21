@@ -14,6 +14,7 @@
 
 @implementation ASCImagePicker
 
+@synthesize table = _table;
 @synthesize imageManager = _imageManager;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -29,10 +30,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    NSLog(@"COUNT: %i",[self.imageManager count]);
+    
+    [self.table reloadData];
 }
 
 - (void)viewDidUnload
 {
+    [self setTable:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -67,11 +73,19 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.imageManager count]/4;
+    int rows = [self.imageManager count]/4;
+    if([self.imageManager count]%4 != 0) {
+        rows++;
+    }
+    return rows;
 }
 
 
-
+- (void)enumeratedAGroup
+{
+    NSLog(@"Manager Finished Enumerating A Group: %i",[self.imageManager count]);
+    [self.table reloadData];
+}
 
 
 
@@ -79,6 +93,7 @@
 {
     if(!_imageManager) {
         _imageManager = [ASCImageManager ImageManagerWithPhotoLibrary];
+        _imageManager.delegate = self;
     }
     return _imageManager;
 }
