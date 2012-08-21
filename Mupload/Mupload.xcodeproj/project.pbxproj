@@ -22,6 +22,9 @@
 		8E3B237C15E35DC400DA24C7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8E3B237A15E35DC400DA24C7 /* InfoPlist.strings */; };
 		8E3B237F15E35DC400DA24C7 /* MuploadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3B237E15E35DC400DA24C7 /* MuploadTests.m */; };
 		8EEEF4D215E406EB00F419D7 /* ASCImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EEEF4D115E406EB00F419D7 /* ASCImageManager.m */; };
+		8EEEF4D815E40D1A00F419D7 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EEEF4D715E40D1A00F419D7 /* AssetsLibrary.framework */; };
+		8EEEF4DF15E40F2F00F419D7 /* ASCImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EEEF4DE15E40F2F00F419D7 /* ASCImagePicker.m */; };
+		8EEEF4E515E413A000F419D7 /* ASCImagePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EEEF4E415E413A000F419D7 /* ASCImagePickerCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,11 @@
 		8E3B237E15E35DC400DA24C7 /* MuploadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MuploadTests.m; sourceTree = "<group>"; };
 		8EEEF4D015E406EB00F419D7 /* ASCImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASCImageManager.h; path = ../ASCImageManager.h; sourceTree = "<group>"; };
 		8EEEF4D115E406EB00F419D7 /* ASCImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASCImageManager.m; path = ../ASCImageManager.m; sourceTree = "<group>"; };
+		8EEEF4D715E40D1A00F419D7 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		8EEEF4DD15E40F2F00F419D7 /* ASCImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASCImagePicker.h; path = ../ASCImagePicker.h; sourceTree = "<group>"; };
+		8EEEF4DE15E40F2F00F419D7 /* ASCImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASCImagePicker.m; path = ../ASCImagePicker.m; sourceTree = "<group>"; };
+		8EEEF4E315E413A000F419D7 /* ASCImagePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASCImagePickerCell.h; path = ../ASCImagePickerCell.h; sourceTree = "<group>"; };
+		8EEEF4E415E413A000F419D7 /* ASCImagePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASCImagePickerCell.m; path = ../ASCImagePickerCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EEEF4D815E40D1A00F419D7 /* AssetsLibrary.framework in Frameworks */,
 				8E3B235115E35DC400DA24C7 /* UIKit.framework in Frameworks */,
 				8E3B235315E35DC400DA24C7 /* Foundation.framework in Frameworks */,
 				8E3B235515E35DC400DA24C7 /* CoreGraphics.framework in Frameworks */,
@@ -105,6 +114,7 @@
 		8E3B234F15E35DC400DA24C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8EEEF4D715E40D1A00F419D7 /* AssetsLibrary.framework */,
 				8E3B235015E35DC400DA24C7 /* UIKit.framework */,
 				8E3B235215E35DC400DA24C7 /* Foundation.framework */,
 				8E3B235415E35DC400DA24C7 /* CoreGraphics.framework */,
@@ -122,8 +132,12 @@
 				8E3B236515E35DC400DA24C7 /* MainStoryboard_iPad.storyboard */,
 				8E3B236815E35DC400DA24C7 /* ViewController.h */,
 				8E3B236915E35DC400DA24C7 /* ViewController.m */,
+				8EEEF4DD15E40F2F00F419D7 /* ASCImagePicker.h */,
+				8EEEF4DE15E40F2F00F419D7 /* ASCImagePicker.m */,
 				8EEEF4D015E406EB00F419D7 /* ASCImageManager.h */,
 				8EEEF4D115E406EB00F419D7 /* ASCImageManager.m */,
+				8EEEF4E315E413A000F419D7 /* ASCImagePickerCell.h */,
+				8EEEF4E415E413A000F419D7 /* ASCImagePickerCell.m */,
 				8E3B235715E35DC400DA24C7 /* Supporting Files */,
 			);
 			path = Mupload;
@@ -271,6 +285,8 @@
 				8E3B236115E35DC400DA24C7 /* AppDelegate.m in Sources */,
 				8E3B236A15E35DC400DA24C7 /* ViewController.m in Sources */,
 				8EEEF4D215E406EB00F419D7 /* ASCImageManager.m in Sources */,
+				8EEEF4DF15E40F2F00F419D7 /* ASCImagePicker.m in Sources */,
+				8EEEF4E515E413A000F419D7 /* ASCImagePickerCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

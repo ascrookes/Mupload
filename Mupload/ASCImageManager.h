@@ -15,6 +15,13 @@
 @property (nonatomic,strong) NSMutableArray*  assets;
 
 
++ (ASCImageManager*)ImageManagerWithPhotoLibrary;
+- (void)getAssetsFromPhotoLibrary;
+- (UIImage*)getImageAtIndex:(NSInteger)index;
+- (int)count;
+- (NSArray*)getImages:(NSInteger)numImages fromIndex:(NSInteger)index;
+
+
 @end
 
 

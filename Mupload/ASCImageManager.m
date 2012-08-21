@@ -15,8 +15,9 @@
 
 
 
-+ (ASCImageManager*)ImageAccessorWithPhotoLibrary
++ (ASCImageManager*)ImageManagerWithPhotoLibrary
 {
+    NSLog(@"CREATING MANAGER");
     ASCImageManager* accessor = [[ASCImageManager alloc] init];
     [accessor getAssetsFromPhotoLibrary];
     return accessor;
@@ -26,17 +27,42 @@
 - (void)getAssetsFromPhotoLibrary
 {
     [self.assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
-        
+        NSLog(@"enumerating");
         if(group != nil) {
             [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
                 [self.assets addObject:result];
+                NSLog(@"ADDED ASSET");
             }];
         }
     } failureBlock:^(NSError *error) {
-        NSLog(@"Assets library enumeration error: %@", error);
+        NSLog(@"Assets library enumeration failure error: %@", error);
     }];
 }
 
+- (UIImage*)getImageAtIndex:(NSInteger)index
+{
+    CGImageRef imageRef = [[[self.assets objectAtIndex:index] defaultRepresentation] fullResolutionImage];
+    return [UIImage imageWithCGImage:imageRef];
+}
+
+- (int)count
+{
+    return [self.assets count];
+}
+
+- (NSArray*)getImages:(NSInteger)numImages fromIndex:(NSInteger)index
+{
+    NSMutableArray* images = [NSMutableArray arrayWithCapacity:4];
+    int end = index + 4;
+    if(end >= [self count]) {
+        end = [self count] - 1;
+    }
+    for(int i = index; i < end; i++)
+    {
+        [images addObject:[self getImageAtIndex:i]];
+    }
+    return images;
+}
 
 
 
@@ -60,6 +86,7 @@
     if(!_assets) {
         _assets = [NSMutableArray array];
     }
+    return _assets;
 }
 
 

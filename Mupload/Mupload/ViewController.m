@@ -39,9 +39,7 @@
 
 - (IBAction)showPicker:(id)sender
 {
-    UIImagePickerController* picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
-    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    ASCImagePicker* picker = [[ASCImagePicker alloc] init];
     [self presentModalViewController:picker animated:YES];
 }
 
