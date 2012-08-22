@@ -19,6 +19,11 @@
     return self;
 }
 
+- (IBAction)tappedImage:(id)sender
+{
+    NSLog(@"Should overlay something here");
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

@@ -66,6 +66,7 @@
     {
         [images addObject:[self getImageAtIndex:i]];
     }
+    //NSLog(@"MANAGER COUNT: %i", [images count]);
     return images;
 }
 

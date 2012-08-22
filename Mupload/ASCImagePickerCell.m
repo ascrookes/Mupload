@@ -31,25 +31,35 @@
 }
 
 // images should be of length 4, unless it is the last row
+// clearing if the image is not there for table reuseable cell reasons
 - (void)setupCellWithImages:(NSArray*)images
 {
     int count = [images count];
     if(count > 0) {
         self.image0.image = [images objectAtIndex:0];
         //NSLog(@"0 SET");
+    } else {
+        self.image0.image = nil;
     }
     if(count > 1) {
         self.image1.image = [images objectAtIndex:1];
         //NSLog(@"1 SET");
+    } else {
+        self.image1.image = nil;
     }
     if(count > 2) {
         self.image2.image = [images objectAtIndex:2];
         //NSLog(@"2 SET");
+    } else {
+        self.image2.image = nil;
     }
     if([images count] > 3) {
         self.image3.image = [images objectAtIndex:3];
         //NSLog(@"3 SET");
+    } else {
+        self.image3.image = nil;
     }
 }
+
 
 @end

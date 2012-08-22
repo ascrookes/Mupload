@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ASCImageCellThumbnail.h"
 
 @interface ASCImagePickerCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *image0;
-@property (weak, nonatomic) IBOutlet UIImageView *image1;
-@property (weak, nonatomic) IBOutlet UIImageView *image2;
-@property (weak, nonatomic) IBOutlet UIImageView *image3;
+@property (weak, nonatomic) IBOutlet ASCImageCellThumbnail *image0;
+@property (weak, nonatomic) IBOutlet ASCImageCellThumbnail *image1;
+@property (weak, nonatomic) IBOutlet ASCImageCellThumbnail *image2;
+@property (weak, nonatomic) IBOutlet ASCImageCellThumbnail *image3;
 
 
 - (void)setupCellWithImages:(NSArray*)images;

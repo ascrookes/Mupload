@@ -32,8 +32,9 @@
 	// Do any additional setup after loading the view.
     
     NSLog(@"COUNT: %i",[self.imageManager count]);
-    
+    self.table.separatorColor = self.table.backgroundColor;
     [self.table reloadData];
+    
 }
 
 - (void)viewDidUnload
@@ -80,10 +81,10 @@
     return rows;
 }
 
-
+// called by manager as delegate call
+// since it enumerates in a loop it says everytime another group is finished
 - (void)enumeratedAGroup
 {
-    NSLog(@"Manager Finished Enumerating A Group: %i",[self.imageManager count]);
     [self.table reloadData];
 }
 
