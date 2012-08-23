@@ -11,10 +11,10 @@
 
 @interface ASCImagePickerCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet ASCImageCellThumbnail *image0;
-@property (weak, nonatomic) IBOutlet ASCImageCellThumbnail *image1;
-@property (weak, nonatomic) IBOutlet ASCImageCellThumbnail *image2;
-@property (weak, nonatomic) IBOutlet ASCImageCellThumbnail *image3;
+@property (strong, nonatomic) IBOutlet ASCImageCellThumbnail *image0;
+@property (strong, nonatomic) IBOutlet ASCImageCellThumbnail *image1;
+@property (strong, nonatomic) IBOutlet ASCImageCellThumbnail *image2;
+@property (strong, nonatomic) IBOutlet ASCImageCellThumbnail *image3;
 
 
 - (void)setupCellWithImages:(NSArray*)images;

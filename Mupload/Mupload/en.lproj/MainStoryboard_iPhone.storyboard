@@ -56,36 +56,8 @@
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="77"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="Ybk-Yq-z8Q" customClass="ASCImageCellThumbnail">
-                                                    <rect key="frame" x="6" y="2" width="75" height="75"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <gestureRecognizers/>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="rup-nk-vr3" customClass="ASCImageCellThumbnail">
-                                                    <rect key="frame" x="239" y="2" width="75" height="75"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <gestureRecognizers/>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="DHy-fq-pRx" customClass="ASCImageCellThumbnail">
-                                                    <rect key="frame" x="161" y="2" width="75" height="75"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <gestureRecognizers/>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="inr-BF-GvE" customClass="ASCImageCellThumbnail">
-                                                    <rect key="frame" x="83" y="2" width="75" height="75"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <gestureRecognizers/>
-                                                </imageView>
-                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <connections>
-                                            <outlet property="image0" destination="Ybk-Yq-z8Q" id="a1h-Rr-XhQ"/>
-                                            <outlet property="image1" destination="inr-BF-GvE" id="EuU-yp-u3h"/>
-                                            <outlet property="image2" destination="DHy-fq-pRx" id="4bR-qP-MGr"/>
-                                            <outlet property="image3" destination="rup-nk-vr3" id="Ip6-Z2-pbO"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -104,6 +76,33 @@
             <point key="canvasLocation" x="372" y="100"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="ASCImageCellThumbnail" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ASCImageCellThumbnail.h"/>
+        </class>
+        <class className="ASCImagePicker" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ASCImagePicker.h"/>
+            <relationships>
+                <relationship kind="outlet" name="table" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="ASCImagePickerCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ASCImagePickerCell.h"/>
+            <relationships>
+                <relationship kind="action" name="clickedImage:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="image0" candidateClass="ASCImageCellThumbnail"/>
+                <relationship kind="outlet" name="image1" candidateClass="ASCImageCellThumbnail"/>
+                <relationship kind="outlet" name="image2" candidateClass="ASCImageCellThumbnail"/>
+                <relationship kind="outlet" name="image3" candidateClass="ASCImageCellThumbnail"/>
+            </relationships>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="showPicker:"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

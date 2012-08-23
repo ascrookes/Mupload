@@ -54,9 +54,8 @@
     static NSString *CellIdentifier = @"iPhone Image Picker Cell";
     ASCImagePickerCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if(cell == nil) {
-        cell = [[ASCImagePickerCell alloc] init];
+        cell = [[ASCImagePickerCell alloc] initWithFrame:CGRectMake(0, 0, 320, 78)];
     }
-    
     [cell setupCellWithImages:[self.imageManager getImages:4 fromIndex:indexPath.row*4]];
 
     return cell;
@@ -79,6 +78,12 @@
         rows++;
     }
     return rows;
+}
+
+
+- (NSIndexPath*)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return nil;
 }
 
 // called by manager as delegate call

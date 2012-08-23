@@ -27,6 +27,7 @@
 - (UIImage*)getImageAtIndex:(NSInteger)index;
 - (int)count;
 - (NSArray*)getImages:(NSInteger)numImages fromIndex:(NSInteger)index;
+- (NSArray*)getAssets:(NSInteger)numImages fromIndex:(NSInteger)index;
 
 
 @end

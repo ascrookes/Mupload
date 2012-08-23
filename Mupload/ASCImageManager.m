@@ -70,6 +70,21 @@
     return images;
 }
 
+- (NSArray*)getAssets:(NSInteger)numImages fromIndex:(NSInteger)index
+{
+    NSMutableArray* assets = [NSMutableArray arrayWithCapacity:4];
+    int end = index + 4;
+    if(end >= [self count]) {
+        end = [self count] - 1;
+    }
+    for(int i = index; i < end; i++)
+    {
+        [assets addObject:[self.assets objectAtIndex:i]];
+    }
+    
+    return assets;
+}
+
 
 
 //*********************************************************

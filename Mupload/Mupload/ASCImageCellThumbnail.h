@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 
-@interface ASCImageCellThumbnail : UIImageView
+@interface ASCImageCellThumbnail : UIButton
+
+- (void)showSelected;
 
 @end

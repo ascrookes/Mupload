@@ -19,10 +19,12 @@
     return self;
 }
 
-- (IBAction)tappedImage:(id)sender
+
+- (void)showSelected
 {
-    NSLog(@"Should overlay something here");
+    [self setImage:[UIImage imageNamed:@"yolo.png"] forState:UIControlStateNormal];
 }
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

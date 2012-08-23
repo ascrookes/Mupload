@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E1BB2DB15E6091300BB0195 /* yolo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E1BB2DA15E6091300BB0195 /* yolo.png */; };
+		8E24EE8A15E479A5004769F7 /* ASCImageCellThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E24EE8915E479A5004769F7 /* ASCImageCellThumbnail.m */; };
 		8E3B235115E35DC400DA24C7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E3B235015E35DC400DA24C7 /* UIKit.framework */; };
 		8E3B235315E35DC400DA24C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E3B235215E35DC400DA24C7 /* Foundation.framework */; };
 		8E3B235515E35DC400DA24C7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E3B235415E35DC400DA24C7 /* CoreGraphics.framework */; };
@@ -25,7 +27,6 @@
 		8EEEF4D815E40D1A00F419D7 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EEEF4D715E40D1A00F419D7 /* AssetsLibrary.framework */; };
 		8EEEF4DF15E40F2F00F419D7 /* ASCImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EEEF4DE15E40F2F00F419D7 /* ASCImagePicker.m */; };
 		8EEEF4E515E413A000F419D7 /* ASCImagePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EEEF4E415E413A000F419D7 /* ASCImagePickerCell.m */; };
-		8EFC143A15E4544C0084D97E /* ASCImageCellThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EFC143915E4544C0084D97E /* ASCImageCellThumbnail.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8E1BB2DA15E6091300BB0195 /* yolo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yolo.png; sourceTree = "<group>"; };
+		8E24EE8815E479A5004769F7 /* ASCImageCellThumbnail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASCImageCellThumbnail.h; sourceTree = "<group>"; };
+		8E24EE8915E479A5004769F7 /* ASCImageCellThumbnail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASCImageCellThumbnail.m; sourceTree = "<group>"; };
 		8E3B234C15E35DC400DA24C7 /* Mupload.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mupload.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E3B235015E35DC400DA24C7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8E3B235215E35DC400DA24C7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -66,8 +70,6 @@
 		8EEEF4DE15E40F2F00F419D7 /* ASCImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASCImagePicker.m; path = ../ASCImagePicker.m; sourceTree = "<group>"; };
 		8EEEF4E315E413A000F419D7 /* ASCImagePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASCImagePickerCell.h; path = ../ASCImagePickerCell.h; sourceTree = "<group>"; };
 		8EEEF4E415E413A000F419D7 /* ASCImagePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASCImagePickerCell.m; path = ../ASCImagePickerCell.m; sourceTree = "<group>"; };
-		8EFC143815E4544C0084D97E /* ASCImageCellThumbnail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASCImageCellThumbnail.h; sourceTree = "<group>"; };
-		8EFC143915E4544C0084D97E /* ASCImageCellThumbnail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASCImageCellThumbnail.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 		8E3B235615E35DC400DA24C7 /* Mupload */ = {
 			isa = PBXGroup;
 			children = (
+				8E1BB2DA15E6091300BB0195 /* yolo.png */,
 				8E3B235F15E35DC400DA24C7 /* AppDelegate.h */,
 				8E3B236015E35DC400DA24C7 /* AppDelegate.m */,
 				8E3B236215E35DC400DA24C7 /* MainStoryboard_iPhone.storyboard */,
@@ -141,8 +144,8 @@
 				8EEEF4D115E406EB00F419D7 /* ASCImageManager.m */,
 				8EEEF4E315E413A000F419D7 /* ASCImagePickerCell.h */,
 				8EEEF4E415E413A000F419D7 /* ASCImagePickerCell.m */,
-				8EFC143815E4544C0084D97E /* ASCImageCellThumbnail.h */,
-				8EFC143915E4544C0084D97E /* ASCImageCellThumbnail.m */,
+				8E24EE8815E479A5004769F7 /* ASCImageCellThumbnail.h */,
+				8E24EE8915E479A5004769F7 /* ASCImageCellThumbnail.m */,
 				8E3B235715E35DC400DA24C7 /* Supporting Files */,
 			);
 			path = Mupload;
@@ -252,6 +255,7 @@
 				8E3B235B15E35DC400DA24C7 /* InfoPlist.strings in Resources */,
 				8E3B236415E35DC400DA24C7 /* MainStoryboard_iPhone.storyboard in Resources */,
 				8E3B236715E35DC400DA24C7 /* MainStoryboard_iPad.storyboard in Resources */,
+				8E1BB2DB15E6091300BB0195 /* yolo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +296,7 @@
 				8EEEF4D215E406EB00F419D7 /* ASCImageManager.m in Sources */,
 				8EEEF4DF15E40F2F00F419D7 /* ASCImagePicker.m in Sources */,
 				8EEEF4E515E413A000F419D7 /* ASCImagePickerCell.m in Sources */,
-				8EFC143A15E4544C0084D97E /* ASCImageCellThumbnail.m in Sources */,
+				8E24EE8A15E479A5004769F7 /* ASCImageCellThumbnail.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
