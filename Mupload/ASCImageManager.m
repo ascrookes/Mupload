@@ -12,6 +12,7 @@
 
 @synthesize assetsLibrary = _assetsLibrary;
 @synthesize assets = _assets;
+@synthesize selectedAssets = _selectedAssets;
 @synthesize delegate;
 
 
@@ -28,19 +29,16 @@
 - (void)getAssetsFromPhotoLibrary
 {
     [self.assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
-        //NSLog(@"enumerating");
         if(group != nil) {
             [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
                 if(result != nil) {
                     [self.assets addObject:result];
-                    //NSLog(@"Adding");
                 }
             }];
         }
         [self.delegate enumeratedAGroup];
         
     } failureBlock:^(NSError *error) {
-        //NSLog(@"Assets library enumeration failure error: %@", error);
     }];
 }
 
@@ -66,14 +64,13 @@
     {
         [images addObject:[self getImageAtIndex:i]];
     }
-    //NSLog(@"MANAGER COUNT: %i", [images count]);
     return images;
 }
 
 - (NSArray*)getAssets:(NSInteger)numImages fromIndex:(NSInteger)index
 {
-    NSMutableArray* assets = [NSMutableArray arrayWithCapacity:4];
-    int end = index + 4;
+    NSMutableArray* assets = [NSMutableArray arrayWithCapacity:numImages];
+    int end = index + numImages;
     if(end >= [self count]) {
         end = [self count] - 1;
     }
@@ -85,6 +82,99 @@
     return assets;
 }
 
+- (NSArray*)getSelected:(NSInteger)numSelected fromIndex:(NSInteger)index
+{
+    NSMutableArray* selected = [NSMutableArray arrayWithCapacity:numSelected];
+    int end = index + numSelected;
+    if(end >= [self count]) {
+        end = [self count] - 1;
+    }
+    for(int i = index; i < end; i++)
+    {
+        [selected addObject:[self.selectedAssets objectAtIndex:i]];
+    }
+
+    return selected;
+}
+
+
+
+
+
+
+- (void)selectedAssetAtIndex:(NSInteger)index
+{
+    // Since BOOL cannot be in an arrry it gets wrapped as an NSNumer
+    NSNumber* selectedWrapper = [self.selectedAssets objectAtIndex:index];
+    BOOL selected = [selectedWrapper boolValue];
+    // Since BOOL is binary just flip it when it gets selected
+    [self.selectedAssets replaceObjectAtIndex:index withObject:[NSNumber numberWithBool:!selected]];
+}
+
+- (NSArray*)getSelectedAssets
+{
+    NSMutableArray* selected = [NSMutableArray array];
+    for(int i = 0; i < [self.selectedAssets count]; i++)
+    {
+        if([[self.selectedAssets objectAtIndex:i] boolValue]) {
+            [selected addObject:[self.assets objectAtIndex:i]];
+        }
+    }
+    return selected;
+}
+
+- (void)clearSelected
+{
+    self.selectedAssets = nil;
+}
+
+//*********************************************************
+//*********************************************************
+#pragma mark - Server Stuff
+//*********************************************************
+//*********************************************************
+
+
+
+/*
+ ASIFormDataRequest* formRequest = [ASIFormDataRequest requestWithURL:url2];
+ //[formRequest setPostFormat:ASIMultipartFormDataPostFormat];
+ formRequest.delegate = self;
+ [formRequest setData:UIImageJPEGRepresentation(image, 1.0f) withFileName:@"yolotiger.jpg" andContentType:@"image/jpeg" forKey:@"image"];
+ [formRequest setPostValue:@"Dougle" forKey:@"name"];
+ [formRequest setRequestMethod:@"POST"];
+ [formRequest startAsynchronous];
+ */
+
+
+
+- (void)uploadImageToServer:(UIImage*)image
+{
+    ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:@"http://ascrookes.webfactional.com/api"]];
+    [request setDelegate:self];
+    [request setPostFormat:ASIMultipartFormDataPostFormat];
+    [request setRequestMethod:@"POST"];
+    [request setData:UIImageJPEGRepresentation(image, 1.0f) withFileName:[NSString stringWithFormat:@"%p.jpg", image] andContentType:@"image/jpeg" forKey:@"image"];
+    
+    [request startAsynchronous];
+}
+
+
+- (void)requestStarted:(ASIHTTPRequest *)request
+{
+    NSLog(@"Started");
+}
+
+- (void)requestFinished:(ASIHTTPRequest *)request
+{
+    NSLog(@"Finished");
+    NSLog(@"Status Msg: [%@]\nResponse: [%@]",[request responseStatusMessage], [request responseString]);
+}
+
+- (void)requestFailed:(ASIHTTPRequest *)request
+{
+    NSLog(@"Failed");
+}
 
 
 //*********************************************************
@@ -108,6 +198,21 @@
         _assets = [NSMutableArray array];
     }
     return _assets;
+}
+
+// If this object does not exist yet create it and fill it with NO
+- (NSMutableArray*)selectedAssets
+{
+    if(!_selectedAssets) {
+        int numAssets = [self.assets count];
+        _selectedAssets = [NSMutableArray arrayWithCapacity:numAssets];
+        for(int i = 0; i < numAssets; i++)
+        {
+            [_selectedAssets addObject:[NSNumber numberWithBool:NO]];
+        }
+    }
+
+    return _selectedAssets;
 }
 
 

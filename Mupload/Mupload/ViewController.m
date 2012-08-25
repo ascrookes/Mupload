@@ -40,8 +40,6 @@
 - (IBAction)showPicker:(id)sender
 {
     ASCImagePicker* picker = [self.storyboard instantiateViewControllerWithIdentifier:@"Image Picker View Controller"];
-    NSLog(@"COUNT: [%i]",[picker.imageManager count]);
-    NSLog(@"STARTED NEXT");
     [self presentModalViewController:picker animated:YES];
 }
 

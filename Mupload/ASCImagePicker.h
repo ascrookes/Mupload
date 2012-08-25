@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "ASCImageManager.h"
 #import "ASCImagePickerCell.h"
+#import "ASIFormDataRequest.h"
+#import "ASIHTTPRequest.h"
 
-@interface ASCImagePicker : UIViewController <UITableViewDataSource, UITableViewDelegate, ASCImageManagerDelegate>
+
+@interface ASCImagePicker : UIViewController <UITableViewDataSource, UITableViewDelegate, ASCImageManagerDelegate, ASCImagePickerCellDelegate, ASIHTTPRequestDelegate>
 
 @property (nonatomic,weak) IBOutlet UITableView* table;
 @property (nonatomic,strong) ASCImageManager* imageManager;

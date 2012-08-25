@@ -36,7 +36,7 @@
 // clearing if the image is not there for table reuseable cell reasons
 - (void)setupCellWithImages:(NSArray*)images
 {
-    
+    [self resetThumbnails];
     int count = [images count];
     if(count > 0) {
         [self.image0 setImage:[images objectAtIndex:0] forState:UIControlStateNormal];
@@ -60,23 +60,58 @@
     }
 }
 
+- (void)resetThumbnails
+{
+    [self.image0 resetThumbnail];
+    [self.image1 resetThumbnail];
+    [self.image2 resetThumbnail];
+    [self.image3 resetThumbnail];
+}
+
 
 - (IBAction)clickedImage:(UIButton*)sender
 {
+    int index = 0;
     if([sender isEqual:self.image0]) {
-        NSLog(@"IMAGE 0");
         [self.image0 showSelected];
+        index = 0;
     } else if([sender isEqual:self.image1]) {
-        NSLog(@"IMAGE 1");
         [self.image1 showSelected];
+        index = 1;
     } else if([sender isEqual:self.image2]) {
-        NSLog(@"IMAGE 2");
         [self.image2 showSelected];
+        index = 2;
     } else if([sender isEqual:self.image3]) {
-        NSLog(@"IMAGE 3");
+        [self.image3 showSelected];
+        index = 3;
+    }
+    [self.delegate selectedCell:self withImageAtIndex:index];
+}
+
+- (void)reselectImages:(NSArray*)selected
+{
+    int count = [selected count];
+    if(count > 0 && [[selected objectAtIndex:0] boolValue]) {
+        [self.image0 showSelected];
+    }
+    if(count > 1 && [[selected objectAtIndex:1] boolValue]) {
+        [self.image1 showSelected];
+    }
+    if(count > 2 && [[selected objectAtIndex:2] boolValue]) {
+        [self.image2 showSelected];
+    }
+    if(count > 3 && [[selected objectAtIndex:3] boolValue]) {
         [self.image3 showSelected];
     }
 }
+
+
+
+
+
+
+
+
 
 
 - (ASCImageCellThumbnail*)image0

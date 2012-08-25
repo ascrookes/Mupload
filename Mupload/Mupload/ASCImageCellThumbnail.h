@@ -9,8 +9,15 @@
 #import <UIKit/UIKit.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 
+
 @interface ASCImageCellThumbnail : UIButton
 
+@property (nonatomic) BOOL selected;
+@property (nonatomic, strong) NSData* originalImageData;
+
+
 - (void)showSelected;
+- (void)resetThumbnail;
+
 
 @end
