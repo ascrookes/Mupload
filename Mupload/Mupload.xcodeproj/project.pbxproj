@@ -37,6 +37,8 @@
 		8EB56CAA15E80F5A00EE930F /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB56C9E15E80F5A00EE930F /* ASIInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8EB56CAB15E80F5A00EE930F /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB56CA015E80F5A00EE930F /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8EB56CAC15E80F5A00EE930F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB56CA315E80F5A00EE930F /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8EB56CB215E875B300EE930F /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB56CB115E875B300EE930F /* FacebookSDK.framework */; };
+		8EB56CB415E8764800EE930F /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8EB56CB315E8764800EE930F /* FacebookSDKResources.bundle */; };
 		8EEEF4D215E406EB00F419D7 /* ASCImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EEEF4D115E406EB00F419D7 /* ASCImageManager.m */; };
 		8EEEF4D815E40D1A00F419D7 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EEEF4D715E40D1A00F419D7 /* AssetsLibrary.framework */; };
 		8EEEF4DF15E40F2F00F419D7 /* ASCImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EEEF4DE15E40F2F00F419D7 /* ASCImagePicker.m */; };
@@ -104,6 +106,8 @@
 		8EB56CA115E80F5A00EE930F /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIProgressDelegate.h; sourceTree = "<group>"; };
 		8EB56CA215E80F5A00EE930F /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		8EB56CA315E80F5A00EE930F /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		8EB56CB115E875B300EE930F /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = Mupload/FacebookSDK.framework; sourceTree = "<group>"; };
+		8EB56CB315E8764800EE930F /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		8EEEF4D015E406EB00F419D7 /* ASCImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASCImageManager.h; path = ../ASCImageManager.h; sourceTree = "<group>"; };
 		8EEEF4D115E406EB00F419D7 /* ASCImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASCImageManager.m; path = ../ASCImageManager.m; sourceTree = "<group>"; };
 		8EEEF4D715E40D1A00F419D7 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -126,6 +130,7 @@
 				8E3B235115E35DC400DA24C7 /* UIKit.framework in Frameworks */,
 				8E3B235315E35DC400DA24C7 /* Foundation.framework in Frameworks */,
 				8E3B235515E35DC400DA24C7 /* CoreGraphics.framework in Frameworks */,
+				8EB56CB215E875B300EE930F /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +169,8 @@
 		8E3B234F15E35DC400DA24C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8EB56CB315E8764800EE930F /* FacebookSDKResources.bundle */,
+				8EB56CB115E875B300EE930F /* FacebookSDK.framework */,
 				8EB56C8715E80AC500EE930F /* libz.dylib */,
 				8EB56C8515E80AB300EE930F /* MobileCoreServices.framework */,
 				8EB56C8315E80AAD00EE930F /* SystemConfiguration.framework */,
@@ -337,6 +344,7 @@
 				8E3B236715E35DC400DA24C7 /* MainStoryboard_iPad.storyboard in Resources */,
 				8E525C5715E71D4400DD3D2C /* picker.png in Resources */,
 				8E525C5815E71D4400DD3D2C /* picker@2x.png in Resources */,
+				8EB56CB415E8764800EE930F /* FacebookSDKResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,10 +506,15 @@
 		8E3B238315E35DC400DA24C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Mupload\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mupload/Mupload-Prefix.pch";
 				INFOPLIST_FILE = "Mupload/Mupload-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -510,10 +523,15 @@
 		8E3B238415E35DC400DA24C7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Mupload\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mupload/Mupload-Prefix.pch";
 				INFOPLIST_FILE = "Mupload/Mupload-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

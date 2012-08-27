@@ -134,19 +134,18 @@
 //*********************************************************
 //*********************************************************
 
+- (void)uploadAssetsImagesToServer:(NSArray*)assets
+{
+    dispatch_queue_t queue = dispatch_queue_create("image uplaod from asset", nil);
+    dispatch_async(queue, ^{
+        for(ALAsset* asset in assets)
+        {
+            [self uploadImageToServer:[UIImage imageWithCGImage:[[asset defaultRepresentation] fullScreenImage]]];
+        }
 
-
-/*
- ASIFormDataRequest* formRequest = [ASIFormDataRequest requestWithURL:url2];
- //[formRequest setPostFormat:ASIMultipartFormDataPostFormat];
- formRequest.delegate = self;
- [formRequest setData:UIImageJPEGRepresentation(image, 1.0f) withFileName:@"yolotiger.jpg" andContentType:@"image/jpeg" forKey:@"image"];
- [formRequest setPostValue:@"Dougle" forKey:@"name"];
- [formRequest setRequestMethod:@"POST"];
- [formRequest startAsynchronous];
- */
-
-
+    });
+    dispatch_release(queue);
+}
 
 - (void)uploadImageToServer:(UIImage*)image
 {
@@ -154,7 +153,9 @@
     [request setDelegate:self];
     [request setPostFormat:ASIMultipartFormDataPostFormat];
     [request setRequestMethod:@"POST"];
+    // want the images to have different names so naming them the hexadecimal address of their UIImages 
     [request setData:UIImageJPEGRepresentation(image, 1.0f) withFileName:[NSString stringWithFormat:@"%p.jpg", image] andContentType:@"image/jpeg" forKey:@"image"];
+    [request setPostValue:[[FBSession activeSession] accessToken] forKey:@"fbAccessToken"];
     
     [request startAsynchronous];
 }
@@ -168,12 +169,14 @@
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
     NSLog(@"Finished");
-    NSLog(@"Status Msg: [%@]\nResponse: [%@]",[request responseStatusMessage], [request responseString]);
+    NSLog(@"\nStatus Msg: [%@]\nResponse: [%@]",[request responseStatusMessage], [request responseString]);
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
-    NSLog(@"Failed");
+    NSLog(@"Failed With Code: %i", [request responseStatusCode]);
+    NSLog(@"Failed With Message: %@", [request responseStatusMessage]);
+    NSLog(@"Failed With Response: %@", [request responseString]);
 }
 
 

@@ -11,6 +11,11 @@
 #import "ASIFormDataRequest.h"
 #import "ASIHTTPRequest.h"
 
+#import <FacebookSDK/FacebookSDK.h>
+
+
+
+
 @protocol ASCImageManagerDelegate <NSObject>
 
 - (void)enumeratedAGroup;
@@ -36,7 +41,7 @@
 - (NSArray*)getSelectedAssets;
 - (void)clearSelected;
 - (void)uploadImageToServer:(UIImage*)image;
-
+- (void)uploadAssetsImagesToServer:(NSArray*)assets;
 
 
 

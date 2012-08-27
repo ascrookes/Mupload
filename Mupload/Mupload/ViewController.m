@@ -39,9 +39,21 @@
 
 - (IBAction)showPicker:(id)sender
 {
+    // Dont allow the picker if they are not logged to fb yet
     ASCImagePicker* picker = [self.storyboard instantiateViewControllerWithIdentifier:@"Image Picker View Controller"];
     [self presentModalViewController:picker animated:YES];
 }
 
+- (IBAction)loginToFB:(id)sender
+{
+    NSArray* permissions  = [NSArray arrayWithObject:@"publish_stream"];
+    [FBSession openActiveSessionWithPermissions:permissions allowLoginUI:YES
+                              completionHandler:^(FBSession *session,
+                                                  FBSessionState status,
+                                                  NSError *error) {
+                                  NSLog(@"ACCESS TOKEN: %@",[[FBSession activeSession] accessToken]);
+                                  NSLog(@"PERMISSIONS:  %@", [[FBSession activeSession] permissions]);
+                              }];
+}
 
 @end

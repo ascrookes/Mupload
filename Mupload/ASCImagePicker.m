@@ -108,28 +108,12 @@
     // Show activity indicator
     // Offload the data to a server
     // Send them to selected social networks
-    
-    //[self.imageManager clearSelected];
-    //[self.table reloadData];
-    UIImage* image;
-    NSURL* url2 = [NSURL URLWithString:@"http://ascrookes.webfactional.com/api"];
-    NSURL* url = [NSURL URLWithString:@"http://www.eecs.tufts.edu/~acrook01/files/joey.json"];
-    if([assets count] > 0) {
-        image = [UIImage imageWithCGImage:[[assets lastObject] thumbnail]];
-    } else {
-        return;
-    }
 
-/*
-    ASIFormDataRequest* formRequest = [ASIFormDataRequest requestWithURL:url2];
-    //[formRequest setPostFormat:ASIMultipartFormDataPostFormat];
-    formRequest.delegate = self;
-    [formRequest setData:UIImageJPEGRepresentation(image, 1.0f) withFileName:@"yolotiger.jpg" andContentType:@"image/jpeg" forKey:@"image"];
-    [formRequest setPostValue:@"Dougle" forKey:@"name"];
-    [formRequest setRequestMethod:@"POST"];
-    [formRequest startAsynchronous];
- */
-    [self.imageManager uploadImageToServer:image];
+    [self.imageManager uploadAssetsImagesToServer:assets];
+    [self.imageManager clearSelected];
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Thank You!" message:@"you'll be notified when we finish" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 

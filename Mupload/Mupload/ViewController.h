@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ASCImagePicker.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface ViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
