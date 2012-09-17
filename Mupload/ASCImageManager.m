@@ -156,7 +156,6 @@
     // want the images to have different names so naming them the hexadecimal address of their UIImages 
     [request setData:UIImageJPEGRepresentation(image, 1.0f) withFileName:[NSString stringWithFormat:@"%p.jpg", image] andContentType:@"image/jpeg" forKey:@"image"];
     [request setPostValue:[[FBSession activeSession] accessToken] forKey:@"fbAccessToken"];
-    
     [request startAsynchronous];
 }
 
